@@ -1,0 +1,347 @@
+/* Work Carousel - Matching original styles exactly */
+
+.work-carousel-container {
+  width: 100%;
+}
+
+/* Intro & Outro Sections - matching original .intro/.outro */
+.carousel-intro,
+.carousel-outro {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f0f0f;
+  color: #fff;
+  overflow: hidden;
+}
+
+.carousel-intro h2,
+.carousel-outro h2 {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: none;
+  font-family: "PP Neue Montreal", "Inter", sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.1rem;
+  line-height: 1.2;
+}
+
+/* Main Slider Section - matching original section */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Image Container - matching original exactly */
+.slider-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-images::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.slider-images img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* Title Container - matching original exactly */
+.slider-title {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  width: auto;
+  max-width: 50%;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(64px) saturate(180%);
+  -webkit-backdrop-filter: blur(64px) saturate(180%);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  z-index: 1;
+}
+
+.slider-title .slide-name {
+  font-family: "Geist Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--base-500);
+  margin-bottom: 1rem;
+}
+
+.slider-title h4 {
+  text-transform: none;
+  font-family: "PP Neue Montreal", "Inter", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  line-height: 1.3;
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Line animation - SplitText - matching original */
+.slider-title .line {
+  position: relative;
+  display: block;
+  will-change: transform;
+}
+
+/* Slide Indicator - matching original exactly */
+.slider-indicator {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.slider-indices {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.slider-indices p {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.slider-indices p:hover .index {
+  opacity: 1 !important;
+}
+
+.slider-indices .index {
+  position: relative;
+  width: 1.25rem;
+  display: flex;
+  justify-content: flex-end;
+  will-change: opacity;
+}
+
+.slider-indices .marker {
+  position: relative;
+  width: 0.75rem;
+  height: 1px;
+  background-color: #fff;
+  transform-origin: right;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+/* Progress Bar - matching original exactly */
+.slider-progress-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.slider-progress {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 3px;
+  height: 100%;
+  background-color: #fff;
+  transform-origin: top;
+  will-change: transform;
+}
+
+/* Hint Text */
+.slider-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  opacity: 0.5;
+  z-index: 1;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1000px) {
+  .carousel-intro h2,
+  .carousel-outro h2 {
+    width: 100%;
+    font-size: 2rem;
+    letter-spacing: 0;
+  }
+
+  /* Full-screen image like desktop, optimized for mobile */
+  .slider-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0f0f;
+  }
+
+  .slider-images img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .slider-images::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.1) 30%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.7) 80%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  /* Title with frosted glass - positioned at bottom */
+  .slider-title {
+    top: auto;
+    bottom: 5rem;
+    left: 1rem;
+    right: 4.5rem;
+    transform: none;
+    width: auto;
+    padding: 1rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(64px) saturate(180%);
+    -webkit-backdrop-filter: blur(64px) saturate(180%);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .slider-title .slide-name {
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .slider-title h4 {
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  /* Indicator - keep original style, just reposition */
+  .slider-indicator {
+    top: unset;
+    transform: none;
+    bottom: 2rem;
+  }
+
+  .slider-hint {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .carousel-intro h2,
+  .carousel-outro h2 {
+    font-size: 1.5rem;
+  }
+
+  .slider-title {
+    bottom: 6rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .slider-title h4 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+/* View Project Button */
+.slider-cta {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(64px) saturate(180%);
+  -webkit-backdrop-filter: blur(64px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  color: #fff;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-cta:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.slider-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 1000px) {
+  .slider-cta {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-cta {
+    bottom: 1rem;
+    left: 1rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.65rem;
+  }
+}
