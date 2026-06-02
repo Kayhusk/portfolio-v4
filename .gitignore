@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/public/profile/archive/
 
 # debug
 npm-debug.log*
